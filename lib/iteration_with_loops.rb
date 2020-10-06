@@ -4,8 +4,18 @@ def find_min_in_nested_arrays(src)
   row = 0
   min_array = []
   while row < src.count do
-    min_array << src[row].min
+    inner_row = 0
+    min = 10000
+    while inner_row < src[row].count do
+      if src[row][inner_row] < min
+        min = src[row][inner_row]
+      end
+    inner_row += 1
+    end
+    min_array << min
     row += 1
   end
   min_array
 end
+
+# skip checking each element in row with while loop by using src[row].min to check min in each row 
